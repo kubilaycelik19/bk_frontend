@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psikolog Randevu Sistemi</title>
+    <style>
+        /* Sadece biraz düzenli görünsün diye */
+        body { font-family: sans-serif; padding: 20px; }
+        div { margin-bottom: 10px; }
+        input { margin-left: 5px; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Psikolog Randevu Sistemi</h1>
+    
+    <div id="login-form">
+        <h3>Giriş Yap</h3>
+        <input type="email" id="email" placeholder="E-posta">
+        <input type="password" id="password" placeholder="Şifre">
+        <button id="login-button">Giriş Yap</button>
+    </div>
+
+    <hr>
+
+    <div id="slots-area" style="display:none;">
+
+        <div id="create-slot-container" style="display:none;">
+            <hr>
+            <h3>Yeni Müsait Slot Ekle</h3>
+            <form id="create-slot-form">
+                <div>
+                    <label for="start_time">Başlangıç:</label>
+                    <input type="datetime-local" id="start_time" required>
+                </div>
+                <div>
+                    <label for="end_time">Bitiş:</label>
+                    <input type="datetime-local" id="end_time" required>
+                </div>
+                <button type="submit">Slot Ekle</button>
+            </form>
+            <hr>
+        </div>
+
+        <h3>Müsait Slotlar</h3>
+        <ul id="slot-list">
+            </ul>
+
+    </div> <script src="main.js"></script>
+</body>
+</html>
