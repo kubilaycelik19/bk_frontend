@@ -5,7 +5,7 @@
 let accessToken = null; 
 let currentUser = null; 
 
-const API_BASE_URL = 'https://bk-api-evsk.onrender.com/'
+const API_BASE_URL = 'https://bk-api-evsk.onrender.com'; // SONUNDA SLASH YOK
 
 // HTML'den sık kullanacağımız elementleri en başta yakalıyoruz
 const loginButton = document.getElementById('login-button');
