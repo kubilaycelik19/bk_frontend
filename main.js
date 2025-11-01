@@ -5,6 +5,8 @@
 let accessToken = null; 
 let currentUser = null; 
 
+const API_BASE_URL = 'https://bk-api-evsk.onrender.com/'
+
 // HTML'den sık kullanacağımız elementleri en başta yakalıyoruz
 const loginButton = document.getElementById('login-button');
 const slotListElement = document.getElementById('slot-list');
@@ -25,7 +27,7 @@ loginButton.addEventListener('click', async () => {
     console.log("Giriş denemesi yapılıyor:", loginData);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/token/', {
+        const response = await fetch(`${API_BASE_URL}/api/token/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(loginData) 
@@ -62,7 +64,7 @@ async function fetchUserAndRenderUI() {
 
     console.log("Kullanıcı rolü /users/me/ adresinden çekiliyor...");
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/users/me/', {
+        const response = await fetch(`${API_BASE_URL}/api/v1/users/me/`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
@@ -123,7 +125,7 @@ async function fetchAvailableSlots() {
 
     console.log("Token kullanarak müsait slotlar çekiliyor...");
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/slots/', {
+        const response = await fetch(`${API_BASE_URL}/api/v1/slots/`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
@@ -199,7 +201,7 @@ createSlotForm.addEventListener('submit', async (event) => {
     console.log("Yeni slot yaratma isteği gönderiliyor:", slotData);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/slots/', {
+        const response = await fetch(`${API_BASE_URL}/api/v1/slots/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${accessToken}`, // Yetki token'ı
@@ -259,7 +261,7 @@ async function bookAppointment(slotId) {
     console.log("Randevu API'sine gönderiliyor:", appointmentData);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/appointments/', {
+        const response = await fetch(`${API_BASE_URL}/api/v1/appointments/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${accessToken}`, // TOKEN_HASTA
